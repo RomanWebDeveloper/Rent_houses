@@ -1,0 +1,118 @@
+.custom-select-container {
+  position: relative;
+  box-sizing: border-box;;
+}
+.custom-select-container * {
+  box-sizing: border-box;
+}
+.custom-select-container.is-disabled {
+  opacity: .333;
+}
+.custom-select-opener {
+  /* background-color: #ccc; */
+  /* padding: 0.5em; */
+  display: block;
+  cursor: pointer;
+  width: 283px;
+  height: 56px;
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  border: none;
+}
+
+@media (max-width: 575px) {
+  .container {
+    max-width: 380px;
+  }
+}
+
+.custom-select-opener span {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(26, 58, 39, 1);
+  line-height: 1.2;
+}
+
+.custom-select-container select {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.custom-select-panel {
+  max-height: 0;
+  transition: max-height .5s ease-out, overflow-y 0.1s 0.5s;
+  overflow: hidden;
+  background-color: #e9e9e9;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  width: 100%;
+}
+.custom-select-container.is-open .custom-select-panel {
+  max-height: 10.7em;
+  overflow-y: auto
+}
+.custom-select-option {
+  padding: 0.5em;
+}
+.custom-select-option.has-focus {
+  background-color: LightBlue;
+}
+.custom-select-option.is-selected::before {
+  content: "✔";
+  padding-right: 0.5em;
+}
+.custom-select-optgroup > .custom-select-option {
+  padding-left: 2em;
+}
+.custom-select-optgroup::before {
+  content: attr(data-label);
+  display: block;
+  padding: 0.5em;
+  color: rgba(26, 58, 39, 1);
+}
+
+/* ------- OVERRIDES ------------ */
+
+/* Custom select */
+
+/* Structure Classes */
+
+/* containerClass: 'custom-select-container' may have isDisabledClass, isOpenClass */
+.custom-select-container {
+	padding-top: 0px;
+}
+
+/* panelClass: 'custom-select-panel' */
+.custom-select-panel {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(26, 58, 39, 1);
+  line-height: 1.2;
+	top: calc(100% + 0);
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+/* optionClass: 'custom-select-option' may have isSelectedClass, hasFocusClass */
+.custom-select-option {
+	padding: 10px;
+	cursor: pointer;
+	transition: all 0.2s ease-in;
+}
+
+.custom-select-option.is-selected {
+	font-weight: 500;
+}
+
+.custom-select-option.is-selected::before {
+	content: none;
+}
+
+.custom-select-option.has-focus {
+	background-color: #ebe5f9;
+}
